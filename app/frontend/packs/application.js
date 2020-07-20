@@ -23,8 +23,13 @@ const svgPath = (name) => svgs(name, true)
 // Tailwind.
 import './stylesheets.css'
 
+import * as d3 from "d3"
+window.d3 = d3
+
 // Main App.
 import Covid from '../covid'
 window.Covid = Covid
 Covid.initialize();
+
+
 
