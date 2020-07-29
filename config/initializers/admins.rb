@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 ADMINS = [
-  'mark.santolucito@yale.edu',
+  'wolf.honore@yale.edu',
   'admin@newhavenhelpwithcovid.com',
   'tiffany.chan@yale.edu'
 ]
