@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def index
     @project_count = Rails.cache.fetch('project_count', expires_in: 1.day) do
-      Project.count
+      Project.where(visible: true).count
     end
     @project_count_total = @project_count
     # Display the projects in increments of 50
@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     end
     # Display the volunteers in increments of 100
     @volunteer_count = (@volunteer_count / 100).floor * 100
-    @featured_projects = Project.where(highlight: true).includes(:project_types, :skills, :volunteers).limit(3).order('RANDOM()')
+    @featured_projects = Project.where(visible: true, highlight: true).includes(:project_types, :skills, :volunteers).limit(3).order('RANDOM()')
 
     @projects_header = "#{CITY_NAME} Residents vs. COVID-19"
     @projects_subheader = "This is a #{CITY_NAME}-wide partnership platform, where #{CITY_NAME} residents can volunteer (in-person or remotely) and local non-profits and government can post volunteer needs. Let us unite and fight the pandemic together!"
@@ -24,22 +24,25 @@ class HomeController < ApplicationController
 
   private
     def projects_with_skills(category)
-      Project.find_each.filter { |proj| proj.visible and !(proj.skill_list & category[:project_types]).empty? }
+      Project.where(visible: true).find_each.filter { |proj|
+        !(proj.skill_list & category[:project_types]).empty?
+      }
     end
 
     def projects_with_locations(category)
+      projects = Project.where(visible: true)
       if category[:project_types].length == 1
-        projects = Project.where('location LIKE ?', '%' + category[:project_types][0] + '%')
+        projects = projects.where('location LIKE ?', '%' + category[:project_types][0] + '%')
       else
-        projects = Project.where(location: category[:project_types])
+        projects = projects.where(location: category[:project_types])
       end
-      projects.filter { |proj| proj.visible }
+      projects
     end
 
     def relevant_projects(category)
       relevant_projects = projects_with_skills(category) + projects_with_locations(category)
-      if category[:project_types].include? "(on site)"
-        relevant_projects.filter! { |proj| not proj.skill_list.include? "Access to car" }
+      if category[:project_types].include? '(on site)'
+        relevant_projects.filter! { |proj| not proj.skill_list.include? 'Access to car' }
       end
       relevant_projects = relevant_projects.sort_by { |project|
         project.highlight ? 0: 1 } # show highlighted projects first
