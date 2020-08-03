@@ -15,8 +15,8 @@ DEVS = {
   'Communications Unit': [
     ['Jill Capotosto', 'Lead Communications Officer'],
     ['Eda Uzunlar', 'Deputy Communications Officer'],
-    ['Aria Norcross', '?'],
-    ['Honor ?', '?'],
+    ['Aria Norcross', 'Marketing and Communications Officer'],
+    ['Honor Thompson', 'Marketing and Communications Officer'],
   ],
   'Liaison Unit': [
     ['Devin Osborne', 'Community Partnership Deputy'],
