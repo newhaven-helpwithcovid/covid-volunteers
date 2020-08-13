@@ -13,13 +13,21 @@
             <%= simple_format project.organization, class: 'text-gray-500' %>
           <% end %>
         </div>
+
         <div class="mt-2 md:mt-0 md:ml-4 flex-shrink-0 flex">
           <% project_volunteer_class = project.volunteered_users.count > 0 ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800" %>
           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full <%= project_volunteer_class %>">
             <% if project.volunteered_users.count == 0 %>
-              no volunteers
+              No volunteers, we need <%= project.number_of_volunteers %> more volunteers!
+              <! -- it's either project.number_of_volunteers or .ALL_NUMBER_OF_VOLUNTEERS -->
+            <% elsif project.number_of_volunteers.include?("+") %>
+            <! -- here too -->
+              <%= pluralize(project.volunteered_users_count, 'volunteer') %>, we still need
+              <%= 100-project.volunteered_users_count %> more!
             <% else %>
-              <%= pluralize(project.volunteered_users.count, 'volunteer') %>
+              <%= pluralize(project.volunteered_users_count, 'volunteer') %>, we still need
+              <%= project.number_of_volunteers.split("-")[1] %> more!
+              <! -- here too -->
             <% end %>
 
             <% if current_user.blank? %>
