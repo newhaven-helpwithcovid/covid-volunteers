@@ -2,8 +2,8 @@
 
 DEVS = {
   '': [
-    ['Tiffany Chan', 'Team Lead'],
-    ['Chloe Fink', 'Team Deputy'],
+    ['Tiffany Chan', 'Founder'],
+    ['Chloe Fink', 'Platform Manager'],
   ],
   'Web Development Unit': [
     ['Wolf Honoré', 'Lead Developer'],
