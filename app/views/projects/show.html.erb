@@ -351,6 +351,35 @@
           <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
             <dt class="text-sm leading-5 font-medium text-gray-500">
               Level of Exposure 
+              <button type="button" class="text-sm text-gray-500 hover:text-gray-800 hover:underline" id='what_is_this'>What is this?</button>
+
+              <!-- Modal that explains levels of exposure-->
+              <div id="modal" class="modal">
+                  <!-- Modal content -->
+                  <div class="modal-content border-b border-gray-200 sm:rounded-lg">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="text-lg leading-6 font-medium text-gray-900">
+                              Levels of Exposure</h3>
+                          <span class="close">&times;</span>
+                      </div>
+                      <p class="mb-4">These are the different levels of exposure associated with each volunteer opportunity listed on this website. Please read the guidelines carefully and take them into consideration when choosing to volunteer.</p>
+                      <ul>
+                        <li>Level I: No risk / from home</li>
+                        <li>Level II: Low risk and minimal human contact</li>
+                        <li>Level III: Potential for human contact</li>
+                        <li>Level IV: Non-clinical but in hospital or office setting</li>
+                        <li>Level V: Clinical and direct human contact</li>
+                      </ul>
+                      <p class="my-4"><%= link_to "More information",  risks_url, class: 'text-indigo-500 hover:underline'%></p>
+                      <!-- 
+                      <p class="mb-4">To protect our volunteers and others you work with during this pandemic, we ask all our volunteers who’ve marked their current location as “on-site in <%= CITY_NAME %>” to use Blank Slate to receive training on City of <%= CITY_NAME %>’s latest volunteer safety guidelines, which will only take 2-3 minutes. After that, depending on what you need to learn for your volunteer work, Blank Slate will send one nudge per week to make sure these updates stay front of mind. Your training status will be indicated on your volunteer profile with a green check mark so that our local partners can recruit with peace of mind.</p>
+                      <p class="mb-4">Please use <%= link_to "this link", "https://app.blankslatetechnologies.com/app/index.html#/signUp?app=covid19", class: 'text-indigo-500', target: :_blank %> to sign up for a free Blank Slate account using the same email address you used for NewHavenHelpWithCovid.com.</p>
+                      <p class="mb-4">If you have any questions or encounter any issues, please contact <%= mail_to HWC_EMAIL, nil, target: '_blank', class: 'text-indigo-500' %>.</p>
+                      <p>Your privacy is of the utmost importance to NewHavenHelpWithCovid, and our relationship with Blank Slate is predicated on maintaining that privacy. Please be assured that your information belongs to you and will never be sold to third parties.</p> -->
+                  </div>
+              </div>
+              <!-- End modal -->
+
             </dt>
             <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 ">
               Level <%= @project.level_of_exposure %>
