@@ -13,7 +13,9 @@ class ProjectMailer < ApplicationMailer
 
   def reminder
     @project = params[:project]
-    mail(to: @project.user.email, bcc: ADMINS, subject: "Reminder: #{@project.name}")
+    # mail(to: @project.user.email, bcc: ADMINS, subject: "Reminder: #{@project.name}")
+    # TODO: temporary debugging
+    mail(to: 'wolf.honore@yale.edu', bcc: ADMINS, subject: "Reminder: #{@project.name}")
   end
 
   def volunteer_outreach

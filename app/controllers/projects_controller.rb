@@ -83,7 +83,10 @@ class ProjectsController < ApplicationController
 
     if @project.save
       ProjectMailer.with(project: @project).new_project.deliver_now
-      ProjectMailer.with(project: @project).reminder.deliver_later(wait: 30.seconds)
+      # TODO: temporary debugging
+      if @project.user.email == 'wolf.honore@yale.edu'
+        ProjectMailer.with(project: @project).reminder.deliver_later(wait: 30.seconds)
+      end
     end
 
     respond_to do |format|
