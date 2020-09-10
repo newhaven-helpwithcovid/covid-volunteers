@@ -83,6 +83,7 @@ class ProjectsController < ApplicationController
 
     if @project.save
       ProjectMailer.with(project: @project).new_project.deliver_now
+      ProjectMailer.with(project: @project).reminder.deliver_later(wait: 30.seconds)
     end
 
     respond_to do |format|

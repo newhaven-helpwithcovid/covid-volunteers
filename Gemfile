@@ -98,3 +98,6 @@ gem "gibbon", "~> 3.3"
 
 # Configuration
 gem 'config'
+
+# Scheduling
+gem 'delayed_job_active_record'

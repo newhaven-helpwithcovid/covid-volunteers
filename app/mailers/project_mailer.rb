@@ -11,6 +11,11 @@ class ProjectMailer < ApplicationMailer
     mail(to: @project.user.email, bcc: ADMINS, subject: "You created a new position: #{@project.name}!")
   end
 
+  def reminder
+    @project = params[:project]
+    mail(to: @project.user.email, bcc: ADMINS, subject: "Reminder: #{@project.name}")
+  end
+
   def volunteer_outreach
     @user = params[:user]
     mail(to: @user.email, reply_to: HWC_EMAIL, subject: "[Help With Covid <%= CITY_NAME %> - action required] Thank you and an update")
