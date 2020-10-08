@@ -144,4 +144,7 @@ Rails.application.configure do
     sender_address: %{"Help With Covid" #{ENV['SMTP_NOREPLY']}},
     exception_recipients: [ENV['SMTP_USERNAME']]
   }
+
+  # MailChimp list ID
+  config.list_id = '97d3425a6c'
 end

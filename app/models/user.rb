@@ -71,7 +71,7 @@ class User < ApplicationRecord
   def subscribe_to_mailchimp(action = true)
     gibbon = Gibbon::Request.new
     gibbon.timeout = 15
-    list_id = "97d3425a6c"
+    list_id = Rails.application.config.list_id
 
     response = gibbon.lists(list_id).members(Digest::MD5.hexdigest(self.email)).upsert(body: {
         email_address: self.email, 

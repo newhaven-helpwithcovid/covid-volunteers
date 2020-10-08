@@ -6,9 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+email_temp = 'newhavenhelpwithcovid%d@fakeemail.com'
 
 user = User.create!(
-  email: 'bobsmith321@gmail.com',
+  email: email_temp % 1,
   name: 'Bob Smith',
   password: 'password',
   password_confirmation: 'password',
@@ -21,7 +22,7 @@ user = User.create!(
 )
 
 user2 = User.create!(
-  email: 'jillbob321@gmail.com',
+  email: email_temp % 2,
   name: 'Jill Bob',
   password: 'password',
   password_confirmation: 'password',
@@ -32,10 +33,10 @@ user2 = User.create!(
   level_of_availability: '99-100 hours a day'
 )
 
-user3 = User.create!(email: 'iamuser3@gmail.com', name: 'Luv2Code', password: 'password', password_confirmation: 'password')
-user4 = User.create!(email: 'iamuser4@gmail.com', name: 'rspineanu', password: 'password', password_confirmation: 'password')
-user5 = User.create!(email: 'iamuser5@gmail.com', name: 'cpu', password: 'password', password_confirmation: 'password')
-user6 = User.create!(email: 'iamuser6@gmail.com', name: 'jamiew', password: 'password', password_confirmation: 'password')
+user3 = User.create!(email: email_temp % 3, name: 'Luv2Code', password: 'password', password_confirmation: 'password')
+user4 = User.create!(email: email_temp % 4, name: 'rspineanu', password: 'password', password_confirmation: 'password')
+user5 = User.create!(email: email_temp % 5, name: 'cpu', password: 'password', password_confirmation: 'password')
+user6 = User.create!(email: email_temp % 6, name: 'jamiew', password: 'password', password_confirmation: 'password')
 
 
 # PROJECTS
