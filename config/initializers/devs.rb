@@ -3,7 +3,7 @@
 DEVS = {
   '': [
     ['Tiffany Chan', 'Founder'],
-    ['Chloe Fink', 'Platform Manager'],
+    ['Chloé Fink', 'Platform Manager'],
   ],
   'Web Development Unit': [
     ['Wolf Honoré', 'Lead Developer'],
@@ -13,8 +13,8 @@ DEVS = {
     ['Jia Wu', 'Lead Visualization Engineer'],
   ],
   'Communications Unit': [
-    ['Aria Norcross', 'Marketing and Communications Officer'],
-    ['Honor Thompson', 'Marketing and Communications Officer'],
+    ['Honor Thompson', 'Lead Communications Officer'],
+    ['Aria Norcross', 'Deputy Communications Officer'],
   ],
   'Liaison Unit': [
     ['Devin Osborne', 'Community Partnership Deputy'],
